@@ -11,6 +11,7 @@
 
  - webpack
  - vue-router
+ - vue-resource
  - vuex
  - Mint-UI
  - MUI
