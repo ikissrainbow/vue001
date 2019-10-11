@@ -54,14 +54,13 @@ let config = {
           loader: 'babel-loader', // npm install babel-loader @babel/core @babel/preset-env，处理es6语法
           options: {
             presets:[
-              '@babel/preset-env', // es6 --> es5
-              
-
+              "@babel/preset-env" // es6 --> es5
             ],
             plugins :[  // 注意先后顺序
-              ['@babel/plugin-proposal-decorators', { "legacy": true }], // npm install @babel/plugin-proposal-decorators -D，处理装饰器
-              ['@babel/plugin-proposal-class-properties',{'loose': true}], // npm install @babel/plugin-proposal-class-properties -D，处理class语法
-              '@babel/plugin-transform-runtime',// npm install @babel/plugin-transform-runtime -D,npm install @babel/runtime，处理运行时
+              ["@babel/plugin-proposal-decorators", { "legacy": true }], // npm install @babel/plugin-proposal-decorators -D，处理装饰器
+              ["@babel/plugin-proposal-class-properties",{"loose": true}], // npm install @babel/plugin-proposal-class-properties -D，处理class语法
+              "@babel/plugin-transform-runtime",// npm install @babel/plugin-transform-runtime -D,npm install @babel/runtime，处理运行时
+              ["@babel/plugin-transform-modules-commonjs", { "strictMode": false }], // npm install @babel/plugin-transform-modules-commonjs @babel/plugin-transform-strict-mode -D,移除严格模式
               ["babel-plugin-component", // npm install babel-plugin-component -D，按需导入Mint UI
                 {
                   "libraryName": "mint-ui",
@@ -69,11 +68,13 @@ let config = {
                 }
               ]
             ]
+            
           }
         },
         //include: path.resolve(__dirname, 'src'), // 搜索路径
         exclude:/node_modules/ // 排除路径
       },
+      // { test:/\.js$/, loader: 'babel-loader', exclude:/node_modules/ },
       { 
         test: /\.css$/,
         use: [ // npm install css-loader style-loader -D，默认执行顺序：自下而上自右向左
